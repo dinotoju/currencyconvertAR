@@ -10,50 +10,33 @@
 <!-- AR.js by @jerome_etienne
 GitHub: https://github.com/jeromeetienne/ar.js
 Medium: https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4e193ea9fdbf -->
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
-	
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>	
 <a-asset-item id="usd-gltf" src="https://dinotoju.github.io/money/5dollar.gltf"></a-asset-item>
+<a-scene cursor="rayOrigin: mouse" embedded arjs="sourceType: webcam; debugUIEnabled: false">
+<a-marker-camera preset="hiro"></a-marker-camera>
 
-
-	 <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
-    <!-- create your content here. just a box for now -->
-     <a-entity
+<a-entity
         gltf-model="#usd-gltf"
         id="usd"
+		class="usd"
         position="-.5 0 -1"
         rotation="-90 0 0"
         scale=".005 .005 .005"
-	 	visible="false"
+		visible="false"
       ></a-entity>
+	 
+		 <a-box id="usd-select" scale="1 .1 .25" rotation="0 0 0" position="-1.5 -1 1" material="color: white; opacity: 0.5;">
+		 </a-box>
 		 
-<!--
-	<a-entity id="usd-select" geometry="primitive: plane; height: .5; width: 1.5" rotation="270 0 0" position="0 -1 0" material="color: white;" visible="true">
-                <a-text value="USD" position="0 0 0" color="black" text=""></a-text>
-          </a-entity>
--->
-		 
-	<a-plane id="usd-select" height=".25" width="1" rotation="270 0 0" position="-1.5 -1 1" material="color: white;"
-		  event-set__enter="_event: mousedown; _target: #usd; visible: true"
-          event-set__leave="_event: mouseup; _target: #usd; visible: false"
-			 >
-		 <a-text value="USD" position="-.5 0 0" color="black" text=""
-		  ></a-text>
-		 </a-plane>
-		 
-		 	<a-plane id="eur-select" height=".25" width="1" rotation="270 0 0" position="0 -1 1" material="color: white;">
+		 	<a-box id="eur-select" scale="1 .1 .25" rotation="0 0 0" position="0 -1 1" material="color: white;">
 		 <a-text value="EUR" position="-.5 0 0" color="black" text=""></a-text>
-		 </a-plane>
+		 </a-box>
 		 
-		 	<a-plane id="cad-select" height=".25" width="1" rotation="270 0 0" position="1.5 -1 1" material="color: white;">
+		 	<a-box id="cad-select" scale="1 .1 .25" rotation="0 0 0" position="1.5 -1 1" material="color: white;">
 		 <a-text value="CAD" position="-.5 0 0" color="black" text=""></a-text>
-		 </a-plane>
-		 
-		 
-    <!-- define a camera which will move according to the marker position -->
-    <a-marker-camera preset="hiro"></a-marker-camera>
+		 </a-box>
+
   </a-scene>
-
-
-</body>
+	</body>
 	<script type="text/javascript" src="js/script.js"></script>
 </html>
