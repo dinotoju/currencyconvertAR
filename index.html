@@ -15,7 +15,7 @@ Medium: https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4e193ea9fd
 <a-asset-item id="usd-gltf" src="https://dinotoju.github.io/money/5dollar.gltf"></a-asset-item>
 
 
-	 <a-scene embedded arjs>
+	 <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
     <!-- create your content here. just a box for now -->
      <a-entity
         gltf-model="#usd-gltf"
@@ -32,18 +32,20 @@ Medium: https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4e193ea9fd
           </a-entity>
 -->
 		 
-	<a-plane id="usd-select" height=".5" width="1.5" rotation="270 0 0" position="-2 -1 1" material="color: white;">
-		 <a-text value="USD" position="0 0 0" color="black" text=""
+	<a-plane id="usd-select" height=".25" width="1" rotation="270 0 0" position="-1.5 -1 1" material="color: white;"
 		  event-set__enter="_event: mousedown; _target: #usd; visible: true"
-          event-set__leave="_event: mouseup; _target: #usd; visible: true"></a-text>
+          event-set__leave="_event: mouseup; _target: #usd; visible: false"
+			 >
+		 <a-text value="USD" position="-.5 0 0" color="black" text=""
+		  ></a-text>
 		 </a-plane>
 		 
-		 	<a-plane id="eur-select" height=".5" width="1.5" rotation="270 0 0" position="0 -1 1" material="color: white;">
-		 <a-text value="EUR" position="0 0 0" color="black" text=""></a-text>
+		 	<a-plane id="eur-select" height=".25" width="1" rotation="270 0 0" position="0 -1 1" material="color: white;">
+		 <a-text value="EUR" position="-.5 0 0" color="black" text=""></a-text>
 		 </a-plane>
 		 
-		 	<a-plane id="cad-select" height=".5" width="1.5" rotation="270 0 0" position="2 -1 1" material="color: white;">
-		 <a-text value="CAD" position="0 0 0" color="black" text=""></a-text>
+		 	<a-plane id="cad-select" height=".25" width="1" rotation="270 0 0" position="1.5 -1 1" material="color: white;">
+		 <a-text value="CAD" position="-.5 0 0" color="black" text=""></a-text>
 		 </a-plane>
 		 
 		 
