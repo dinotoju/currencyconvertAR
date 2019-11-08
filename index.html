@@ -23,6 +23,7 @@ Medium: https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4e193ea9fd
         position="-.5 0 -1"
         rotation="-90 0 0"
         scale=".005 .005 .005"
+	 	visible="false"
       ></a-entity>
 		 
 <!--
@@ -32,7 +33,9 @@ Medium: https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4e193ea9fd
 -->
 		 
 	<a-plane id="usd-select" height=".5" width="1.5" rotation="270 0 0" position="-2 -1 1" material="color: white;">
-		 <a-text value="USD" position="0 0 0" color="black" text=""></a-text>
+		 <a-text value="USD" position="0 0 0" color="black" text=""
+		  event-set__enter="_event: mousedown; _target: #usd; visible: true"
+          event-set__leave="_event: mouseup; _target: #usd; visible: true"></a-text>
 		 </a-plane>
 		 
 		 	<a-plane id="eur-select" height=".5" width="1.5" rotation="270 0 0" position="0 -1 1" material="color: white;">
